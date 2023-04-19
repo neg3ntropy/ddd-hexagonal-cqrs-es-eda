@@ -151,10 +151,11 @@ services:
       context: ./envoy
     ports:
       - '8080:8080'
-      - '9901:9901'
     networks:
       - bitloops
 
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
   bl-telemetry-consumer:
     container_name: bl-telemetry-consumer
     env_file:
